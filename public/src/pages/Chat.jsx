@@ -25,7 +25,7 @@ function Chat() {
             }
         } 
         fetchData();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     if (currentUser) {
@@ -46,7 +46,7 @@ function Chat() {
           }
         }
         fetchData();
-  }, [currentUser]);
+  }, [currentUser, navigate]);
   
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
@@ -57,7 +57,7 @@ function Chat() {
       <div className="container">
         <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange} />
         {
-          isLoaded && currentChat == undefined ? <Welcome currentUser={currentUser} /> :
+          isLoaded && currentChat === undefined ? <Welcome currentUser={currentUser} /> :
             <ChatContainer currentChat={currentChat} currentUser={currentUser} socket={socket} />
         }
       </div>

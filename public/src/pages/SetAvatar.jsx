@@ -27,7 +27,7 @@ export default function SetAvatar() {
                 navigate('/login');
         }
         fetchData();
-    }, []);
+    }, [navigate]);
 
     const setProfilePicture = async () => {
         if (selectedAvatar === undefined) {
